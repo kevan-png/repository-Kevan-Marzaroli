@@ -1,0 +1,14 @@
+---
+layout: default
+title: Projets
+---
+
+<h1>Tous mes projets</h1>
+
+{% for projet in site.projets %}
+  <article class="carte">
+    <h3><a href="{{ projet.url | relative_url }}">{{ projet.title }}</a></h3>
+    {% if projet.resume %}<p>{{ projet.resume }}</p>{% endif %}
+    <p class="meta">Mis à jour le {{ projet.date | date: "%d/%m/%Y" }}</p>
+  </article>
+{% endfor %}

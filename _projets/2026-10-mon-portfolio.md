@@ -24,10 +24,12 @@ Seul, en salle de formation. Un compte GitHub gratuit, le modèle de portfolio d
 
 ## Productions et preuves
 
-- L'adresse publique du site.
-- Le dépôt et son historique des modifications.
-- Le score d'accessibilité relevé.
+- **Adresse publique du site :** [https://kevan-png.github.io/repository-Kevan-Marzaroli/](https://kevan-png.github.io/repository-Kevan-Marzaroli/)
+- **Dépôt GitHub :** [https://github.com/kevan-png/repository-Kevan-Marzaroli](https://github.com/kevan-png/repository-Kevan-Marzaroli)
+- **Score d'accessibilité :** 100/100 sur Lighthouse et 0 erreur au W3C.
 
 ## Ce que j'en retiens
 
-Remplacez cette phrase par une difficulté rencontrée et la façon dont vous l'avez réglée.
+Difficulté : La localisation des paramètres GitHub Pages et l'attente de la génération du lien du site.
+Solution : Il a fallu naviguer dans Settings > Pages, passer la source sur la branche main, puis patienter que la publication se termine dans l'onglet Actions pour obtenir l'url.
+

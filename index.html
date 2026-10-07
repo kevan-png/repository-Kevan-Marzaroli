@@ -1,105 +1,50 @@
-/* --- BANNIÈRE VIDÉO PLEIN ÉCRAN STYLE META --- */
+---
+layout: default
+---
 
-.hero-section {
-  position: relative;
-  width: 100vw;
-  left: 50%;
-  right: 50%;
-  margin-left: -50vw;
-  margin-right: -50vw;
-  height: 70vh;
-  min-height: 450px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  overflow: hidden;
-  margin-top: 0;
-  margin-bottom: 3rem;
-  background-color: #08090c;
-}
+<!-- BANNIÈRE HERO VIDÉO PLEIN ÉCRAN -->
+<div class="hero-section">
+  <video class="hero-video-bg" autoplay loop muted playsinline>
+    <source src="{{ '/images/hero.mp4' | relative_url }}" type="video/mp4">
+  </video>
+  
+  <div class="hero-overlay"></div>
 
-.hero-video-bg {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 100vw;
-  height: 100%;
-  min-width: 100vw;
-  min-height: 70vh;
-  object-fit: cover;
-  transform: translate(-50%, -50%);
-  z-index: 1;
-  pointer-events: none;
-  border: none !important;
-  box-shadow: none !important;
-}
+  <div class="hero-text-content">
+    <h1 class="hero-title">Kevan Marzaroli</h1>
+    <p class="hero-subtitle">{{ site.description }}</p>
+    <a href="#projets" class="hero-button">Découvrir mes réalisations</a>
+  </div>
+</div>
 
-.hero-overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.55); /* Voile sombre pour faire ressortir le texte */
-  z-index: 2;
-}
+<!-- SECTION PROFIL -->
+<h2>Profil</h2>
+<p>Étudiant en BTS SIO option SISR, je me passionne pour l'administration système, la gestion des réseaux et la cybersécurité. J'ai déjà développé des compétences pratiques dans la configuration de serveurs web, le paramétrage d'équipements réseau et l'administration système. À la recherche d'une alternance dans le domaine des systèmes et réseaux.</p>
 
-.hero-text-content {
-  position: relative;
-  z-index: 3;
-  max-width: 850px;
-  padding: 0 20px;
-  color: #ffffff;
-}
+<!-- SECTION PROJETS -->
+{% assign projets = site.projets | sort: "date" | reverse %}
 
-.hero-title {
-  font-size: 3.5rem !important;
-  font-weight: 800 !important;
-  color: #ffffff !important;
-  margin: 0 0 1rem 0 !important;
-  letter-spacing: -0.03em;
-  text-shadow: 0 4px 20px rgba(0, 0, 0, 0.8);
-  background: none !important;
-  -webkit-text-fill-color: #ffffff !important;
-}
+<h2 id="projets">Projets ({{ projets.size }})</h2>
+{% for p in projets %}
+<article class="carte">
+  <h3><a href="{{ p.url | relative_url }}">{{ p.title }}</a></h3>
+  <p>{{ p.resume }}</p>
+  <p class="meta">{{ p.date | date: "%m/%Y" }} · {{ p.cadre }}</p>
+</article>
+{% endfor %}
 
-.hero-subtitle {
-  font-size: 1.25rem !important;
-  color: #e5e7eb !important;
-  margin: 0 0 2rem 0 !important;
-  font-weight: 400;
-  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.8);
-}
-
-.hero-button {
-  display: inline-block !important;
-  background-color: #0064e0 !important; /* Bleu Meta */
-  color: #ffffff !important;
-  font-weight: 600 !important;
-  font-size: 1.05rem !important;
-  padding: 0.9rem 2.2rem !important;
-  border-radius: 50px !important;
-  text-decoration: none !important;
-  box-shadow: 0 4px 20px rgba(0, 100, 224, 0.5) !important;
-  transition: all 0.3s ease !important;
-}
-
-.hero-button:hover {
-  background-color: #0052b8 !important;
-  transform: translateY(-2px);
-  box-shadow: 0 6px 25px rgba(0, 100, 224, 0.7) !important;
-}
-
-@media (max-width: 768px) {
-  .hero-section {
-    height: 55vh;
-    min-height: 380px;
-  }
-  .hero-title {
-    font-size: 2.2rem !important;
-  }
-  .hero-subtitle {
-    font-size: 1rem !important;
-  }
-}
+<!-- SECTION COMPÉTENCES -->
+<h2 id="competences">Compétences du bloc 1</h2>
+<p>Chaque croix renvoie au projet qui la prouve. Le tableau se remplit tout seul à chaque projet ajouté.</p>
+<div class="defile">
+<table>
+  <thead>
+    <tr><th scope="col">Compétence</th>{% for p in projets %}<th scope="col"><a href="{{ p.url | relative_url }}">P{{ forloop.rindex }}</a></th>{% endfor %}</tr>
+  </thead>
+  <tbody>
+  {% for c in site.data.competences %}
+    <tr><th scope="row">{{ c.libelle }}</th>{% for p in projets %}<td class="case">{% if p.competences contains c.code %}<a href="{{ p.url | relative_url }}" aria-label="{{ c.libelle }} : {{ p.title }}">X</a>{% endif %}</td>{% endfor %}</tr>
+  {% endfor %}
+  </tbody>
+</table>
+</div>

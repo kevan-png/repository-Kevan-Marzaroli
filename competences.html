@@ -1,0 +1,31 @@
+---
+layout: default
+title: Compétences
+---
+
+<h1>Tableau de compétences BTS SIO</h1>
+
+<div class="defile">
+  <table>
+    <thead>
+      <tr>
+        <th>Compétences</th>
+        {% for projet in site.projets %}
+          <th class="case">{{ projet.title }}</th>
+        {% endfor %}
+      </tr>
+    </thead>
+    <tbody>
+      {% for comp in site.data.competences %}
+        <tr>
+          <td><strong>{{ comp.code }}</strong> — {{ comp.libelle }}</td>
+          {% for projet in site.projets %}
+            <td class="case">
+              {% if projet.competences contains comp.code %}✓{% endif %}
+            </td>
+          {% endfor %}
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>

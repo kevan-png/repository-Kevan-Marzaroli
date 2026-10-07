@@ -2,49 +2,49 @@
 layout: default
 ---
 
-<!-- BANNIÈRE HERO VIDÉO PLEIN ÉCRAN -->
-<div class="hero-section">
-  <video class="hero-video-bg" autoplay loop muted playsinline>
+<!-- HERO BANNIÈRE STYLE META -->
+<div class="meta-hero">
+  <video class="meta-hero-video" autoplay loop muted playsinline>
     <source src="{{ '/images/hero.mp4' | relative_url }}" type="video/mp4">
   </video>
-  
-  <div class="hero-overlay"></div>
 
-  <div class="hero-text-content">
-    <h1 class="hero-title">Kevan Marzaroli</h1>
-    <p class="hero-subtitle">{{ site.description }}</p>
-    <a href="#projets" class="hero-button">Découvrir mes réalisations</a>
+  <div class="meta-hero-overlay"></div>
+
+  <div class="meta-hero-content">
+    <h1 class="meta-hero-title">Kevan Marzaroli</h1>
+    <p class="meta-hero-subtitle">{{ site.description }}</p>
+    <a href="#projets" class="meta-hero-btn">Découvrir mes réalisations</a>
   </div>
 </div>
 
-<!-- SECTION PROFIL -->
-<h2>Profil</h2>
-<p>Étudiant en BTS SIO option SISR, je me passionne pour l'administration système, la gestion des réseaux et la cybersécurité. J'ai déjà développé des compétences pratiques dans la configuration de serveurs web, le paramétrage d'équipements réseau et l'administration système. À la recherche d'une alternance dans le domaine des systèmes et réseaux.</p>
+<!-- LE RESTE DE LA PAGE (Profil, Projets, Compétences) -->
+<div class="main-content">
+  <h2>Profil</h2>
+  <p>Étudiant en BTS SIO option SISR, je me passionne pour l'administration système, la gestion des réseaux et la cybersécurité. J'ai déjà développé des compétences pratiques dans la configuration de serveurs web, le paramétrage d'équipements réseau et l'administration système. À la recherche d'une alternance dans le domaine des systèmes et réseaux.</p>
 
-<!-- SECTION PROJETS -->
-{% assign projets = site.projets | sort: "date" | reverse %}
+  {% assign projets = site.projets | sort: "date" | reverse %}
 
-<h2 id="projets">Projets ({{ projets.size }})</h2>
-{% for p in projets %}
-<article class="carte">
-  <h3><a href="{{ p.url | relative_url }}">{{ p.title }}</a></h3>
-  <p>{{ p.resume }}</p>
-  <p class="meta">{{ p.date | date: "%m/%Y" }} · {{ p.cadre }}</p>
-</article>
-{% endfor %}
-
-<!-- SECTION COMPÉTENCES -->
-<h2 id="competences">Compétences du bloc 1</h2>
-<p>Chaque croix renvoie au projet qui la prouve. Le tableau se remplit tout seul à chaque projet ajouté.</p>
-<div class="defile">
-<table>
-  <thead>
-    <tr><th scope="col">Compétence</th>{% for p in projets %}<th scope="col"><a href="{{ p.url | relative_url }}">P{{ forloop.rindex }}</a></th>{% endfor %}</tr>
-  </thead>
-  <tbody>
-  {% for c in site.data.competences %}
-    <tr><th scope="row">{{ c.libelle }}</th>{% for p in projets %}<td class="case">{% if p.competences contains c.code %}<a href="{{ p.url | relative_url }}" aria-label="{{ c.libelle }} : {{ p.title }}">X</a>{% endif %}</td>{% endfor %}</tr>
+  <h2 id="projets">Projets ({{ projets.size }})</h2>
+  {% for p in projets %}
+  <article class="carte">
+    <h3><a href="{{ p.url | relative_url }}">{{ p.title }}</a></h3>
+    <p>{{ p.resume }}</p>
+    <p class="meta">{{ p.date | date: "%m/%Y" }} · {{ p.cadre }}</p>
+  </article>
   {% endfor %}
-  </tbody>
-</table>
+
+  <h2 id="competences">Compétences du bloc 1</h2>
+  <p>Chaque croix renvoie au projet qui la prouve. Le tableau se remplit tout seul à chaque projet ajouté.</p>
+  <div class="defile">
+  <table>
+    <thead>
+      <tr><th scope="col">Compétence</th>{% for p in projets %}<th scope="col"><a href="{{ p.url | relative_url }}">P{{ forloop.rindex }}</a></th>{% endfor %}</tr>
+    </thead>
+    <tbody>
+    {% for c in site.data.competences %}
+      <tr><th scope="row">{{ c.libelle }}</th>{% for p in projets %}<td class="case">{% if p.competences contains c.code %}<a href="{{ p.url | relative_url }}" aria-label="{{ c.libelle }} : {{ p.title }}">X</a>{% endif %}</td>{% endfor %}</tr>
+    {% endfor %}
+    </tbody>
+  </table>
+  </div>
 </div>

@@ -33,3 +33,13 @@ Seul, en salle de formation. Un compte GitHub gratuit, le modèle de portfolio d
 Difficulté : La localisation des paramètres GitHub Pages et l'attente de la génération du lien du site.
 Solution : Il a fallu naviguer dans Settings > Pages, passer la source sur la branche main, puis patienter que la publication se termine dans l'onglet Actions pour obtenir l'url.
 
+## Productions et preuves
+
+### Page d'accueil
+![Page d'accueil]({{ "/images/acceuil.png" | relative_url }})
+
+### Page Projets
+![Page Projets]({{ "/images/projets.png" | relative_url }})
+
+### Page Compétences
+![Page Compétences]({{ "/images/compétences.png" | relative_url }})

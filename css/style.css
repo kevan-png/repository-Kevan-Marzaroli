@@ -1,45 +1,234 @@
-/* Mise en forme du portfolio. Changez la couleur --accent pour donner
-   votre teinte au site ; le reste suit. */
+/* Style du portfolio - Version Modernisée Tech & Cybersécurité */
+
 :root {
-  --encre: #1d2630;
-  --accent: #0a5c8c;
-  --fond: #fbfbf9;
-  --trait: #d5dbe1;
-  --doux: #5b6672;
+  --fond: #0f172a;          /* Slate 900 - Fond sombre élégant */
+  --carte-bg: #1e293b;      /* Slate 800 - Fond des cartes et éléments */
+  --encre: #f8fafc;         /* Slate 50 - Texte principal très lisible */
+  --doux: #94a3b8;          /* Slate 400 - Textes secondaires */
+  --trait: #334155;         /* Slate 700 - Bordures discrètes */
+  --accent: #38bdf8;        /* Sky 400 - Bleu Tech pour liens et éléments clés */
+  --code-bg: #182232;       /* Fond des blocs de code */
 }
-* { box-sizing: border-box; }
+
+* { 
+  box-sizing: border-box; 
+}
+
 body {
   margin: 0;
   background: var(--fond);
   color: var(--encre);
-  font: 17px/1.6 Georgia, "Times New Roman", serif;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
 }
-header, main, footer { max-width: 46rem; margin: 0 auto; padding: 0 1rem; }
-header { padding-top: 1.6rem; display: flex; flex-wrap: wrap; justify-content: space-between; align-items: baseline; gap: .5rem 1.5rem; }
-.site { margin: 0; font: bold 1.05rem Calibri, Arial, sans-serif; }
-.site a { color: var(--encre); text-decoration: none; }
-nav ul { list-style: none; padding: 0; margin: 0; display: flex; flex-wrap: wrap; gap: .3rem 1.2rem; font-family: Calibri, Arial, sans-serif; }
-h1, h2, h3 { font-family: Calibri, Arial, sans-serif; line-height: 1.25; }
-h1 { font-size: 2rem; margin: 2rem 0 0; }
-h2 { font-size: 1.35rem; margin-top: 2.2rem; border-bottom: 1px solid var(--trait); padding-bottom: .3rem; }
-a { color: var(--accent); }
-a:focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; }
-.sous-titre, .meta { color: var(--doux); margin: .3rem 0 0; }
-.meta { font-size: .85rem; }
-.carte { border: 1px solid var(--trait); background: #fff; padding: .8rem 1rem; margin: 1rem 0; }
-.carte h3 { margin: 0 0 .2rem; }
-.carte p { margin: .2rem 0; }
-.comp-liste { font-size: .9rem; }
-.comp { display: inline-block; border: 1px solid var(--trait); padding: 0 .4rem; margin: .15rem .3rem .15rem 0; background: #fff; }
-.defile { overflow-x: auto; }
-table { border-collapse: collapse; width: 100%; font-size: .9rem; }
-th, td { border: 1px solid var(--trait); padding: .4rem .55rem; text-align: left; vertical-align: top; }
-th { background: #eef2f5; font-family: Calibri, Arial, sans-serif; }
-td.case { text-align: center; font-weight: bold; min-width: 2.4rem; }
-img { max-width: 100%; height: auto; border: 1px solid var(--trait); }
-code { font-size: .9em; background: #eef2f5; padding: 0 .25rem; }
-footer { margin-top: 3rem; padding-bottom: 2rem; font-size: .85rem; color: var(--doux); border-top: 1px solid var(--trait); }
+
+header, main, footer { 
+  max-width: 52rem; 
+  margin: 0 auto; 
+  padding: 0 1.5rem; 
+}
+
+header { 
+  padding-top: 2rem; 
+  padding-bottom: 1rem;
+  display: flex; 
+  flex-wrap: wrap; 
+  justify-content: space-between; 
+  align-items: center; 
+  gap: 1rem 1.5rem; 
+  border-bottom: 1px solid var(--trait);
+}
+
+.site { 
+  margin: 0; 
+  font-size: 1.15rem; 
+  font-weight: 700; 
+  letter-spacing: -0.02em;
+}
+
+.site a { 
+  color: var(--encre); 
+  text-decoration: none; 
+  transition: color 0.2s ease;
+}
+
+.site a:hover {
+  color: var(--accent);
+}
+
+nav ul { 
+  list-style: none; 
+  padding: 0; 
+  margin: 0; 
+  display: flex; 
+  flex-wrap: wrap; 
+  gap: 0.5rem 1.5rem; 
+  font-weight: 500;
+}
+
+nav a {
+  color: var(--doux);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+nav a:hover {
+  color: var(--accent);
+}
+
+h1, h2, h3 { 
+  color: var(--encre);
+  line-height: 1.25; 
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+h1 { 
+  font-size: 2.2rem; 
+  margin: 2.5rem 0 0.5rem; 
+}
+
+h2 { 
+  font-size: 1.4rem; 
+  margin-top: 2.5rem; 
+  border-bottom: 1px solid var(--trait); 
+  padding-bottom: 0.5rem; 
+}
+
+a { 
+  color: var(--accent); 
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+a:focus-visible { 
+  outline: 2px solid var(--accent); 
+  outline-offset: 4px; 
+  border-radius: 4px;
+}
+
+.sous-titre, .meta { 
+  color: var(--doux); 
+  margin: 0.4rem 0 0; 
+}
+
+.meta { 
+  font-size: 0.85rem; 
+}
+
+/* Cartes Projets */
+.carte { 
+  border: 1px solid var(--trait); 
+  background: var(--carte-bg); 
+  border-radius: 8px;
+  padding: 1.2rem; 
+  margin: 1.2rem 0; 
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.2);
+  transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.carte:hover {
+  transform: translateY(-2px);
+  border-color: var(--accent);
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.4);
+}
+
+.carte h3 { 
+  margin: 0 0 0.4rem; 
+  font-size: 1.2rem;
+}
+
+.carte p { 
+  margin: 0.4rem 0; 
+  color: #cbd5e1;
+}
+
+/* Badges de compétences */
+.comp-liste { 
+  font-size: 0.85rem; 
+  margin-top: 0.8rem;
+}
+
+.comp { 
+  display: inline-block; 
+  border: 1px solid var(--trait); 
+  border-radius: 6px;
+  padding: 0.15rem 0.55rem; 
+  margin: 0.2rem 0.4rem 0.2rem 0; 
+  background: var(--fond); 
+  color: var(--accent);
+  font-weight: 500;
+}
+
+/* Tableau des compétences */
+.defile { 
+  overflow-x: auto; 
+  border-radius: 8px;
+  border: 1px solid var(--trait);
+  margin-top: 1.2rem;
+}
+
+table { 
+  border-collapse: collapse; 
+  width: 100%; 
+  font-size: 0.9rem; 
+}
+
+th, td { 
+  border: 1px solid var(--trait); 
+  padding: 0.65rem 0.85rem; 
+  text-align: left; 
+  vertical-align: middle; 
+}
+
+th { 
+  background: var(--carte-bg); 
+  color: var(--encre);
+  font-weight: 600;
+}
+
+td.case { 
+  text-align: center; 
+  font-weight: bold; 
+  min-width: 2.5rem; 
+  color: var(--accent);
+}
+
+/* Images & Code */
+img { 
+  max-width: 100%; 
+  height: auto; 
+  border: 1px solid var(--trait); 
+  border-radius: 8px;
+  margin: 1rem 0;
+}
+
+code { 
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+  font-size: 0.875em; 
+  background: var(--code-bg); 
+  color: #38bdf8;
+  border: 1px solid var(--trait);
+  border-radius: 4px;
+  padding: 0.15rem 0.4rem; 
+}
+
+footer { 
+  margin-top: 4rem; 
+  padding: 2rem 1.5rem; 
+  font-size: 0.85rem; 
+  color: var(--doux); 
+  border-top: 1px solid var(--trait); 
+}
+
 @media (max-width: 520px) {
-  body { font-size: 16px; }
-  h1 { font-size: 1.6rem; }
+  body { font-size: 15px; }
+  h1 { font-size: 1.75rem; }
+  header { flex-direction: column; align-items: flex-start; }
 }

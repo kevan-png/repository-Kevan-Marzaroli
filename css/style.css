@@ -1,56 +1,70 @@
-/* Style du portfolio - Version Modernisée Tech & Cybersécurité */
+/* Style du portfolio — Design Pro Tech & Dark Mode Premium */
 
 :root {
-  --fond: #0f172a;          /* Slate 900 - Fond sombre élégant */
-  --carte-bg: #1e293b;      /* Slate 800 - Fond des cartes et éléments */
-  --encre: #f8fafc;         /* Slate 50 - Texte principal très lisible */
-  --doux: #94a3b8;          /* Slate 400 - Textes secondaires */
-  --trait: #334155;         /* Slate 700 - Bordures discrètes */
-  --accent: #38bdf8;        /* Sky 400 - Bleu Tech pour liens et éléments clés */
-  --code-bg: #182232;       /* Fond des blocs de code */
+  --bg-main: #0b0f17;          /* Fond principal sombre et profond */
+  --bg-card: #111827;          /* Fond des cartes */
+  --bg-card-hover: #162032;    /* Fond au survol */
+  --border: #1f2937;           /* Bordures discrètes */
+  --border-bright: #374151;    /* Bordures renforcées */
+  --text-main: #f9fafb;        /* Texte principal haute lisibilité */
+  --text-muted: #9ca3af;       /* Texte secondaire */
+  --accent: #38bdf8;           /* Sky Blue - Accentuation */
+  --accent-glow: rgba(56, 189, 248, 0.12); /* Lueur au survol */
+  --code-bg: #030712;         /* Fond des blocs de code */
 }
 
 * { 
   box-sizing: border-box; 
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   margin: 0;
-  background: var(--fond);
-  color: var(--encre);
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  background-color: var(--bg-main);
+  color: var(--text-main);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
   font-size: 16px;
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
 }
 
+/* Structure principale */
 header, main, footer { 
-  max-width: 52rem; 
+  max-width: 54rem; 
   margin: 0 auto; 
   padding: 0 1.5rem; 
 }
 
-/* Header aligné à gauche style Meta */
+/* Navigation collée en haut avec effet verre */
 header { 
-  padding-top: 1.5rem; 
-  padding-bottom: 1.5rem;
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: rgba(11, 15, 23, 0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  padding-top: 1.2rem; 
+  padding-bottom: 1.2rem;
   display: flex; 
   flex-wrap: wrap; 
   justify-content: flex-start; 
   align-items: center; 
   gap: 1rem 2.5rem; 
-  border-bottom: 1px solid var(--trait);
+  border-bottom: 1px solid var(--border);
 }
 
 .site { 
   margin: 0; 
-  font-size: 1.15rem; 
+  font-size: 1.1rem; 
   font-weight: 700; 
-  letter-spacing: -0.02em;
+  letter-spacing: -0.025em;
 }
 
 .site a { 
-  color: var(--encre); 
+  color: var(--text-main); 
   text-decoration: none; 
   transition: color 0.2s ease;
 }
@@ -65,43 +79,45 @@ nav ul {
   margin: 0; 
   display: flex; 
   flex-wrap: wrap; 
-  gap: 0.5rem 1.5rem; 
+  gap: 0.5rem 1.8rem; 
   font-weight: 500;
+  font-size: 0.95rem;
 }
 
 nav a {
-  color: var(--doux);
+  color: var(--text-muted);
   text-decoration: none;
   transition: color 0.2s ease;
 }
 
 nav a:hover {
-  color: var(--accent);
+  color: var(--text-main);
 }
 
+/* Titres */
 h1, h2, h3 { 
-  color: var(--encre);
+  color: var(--text-main);
   line-height: 1.25; 
   font-weight: 700;
-  letter-spacing: -0.02em;
+  letter-spacing: -0.025em;
 }
 
 h1 { 
-  font-size: 2.2rem; 
-  margin: 2.5rem 0 0.5rem; 
+  font-size: 2.25rem; 
+  margin: 3rem 0 0.75rem; 
 }
 
 h2 { 
-  font-size: 1.4rem; 
-  margin-top: 2.5rem; 
-  border-bottom: 1px solid var(--trait); 
-  padding-bottom: 0.5rem; 
+  font-size: 1.35rem; 
+  margin-top: 3rem; 
+  border-bottom: 1px solid var(--border); 
+  padding-bottom: 0.6rem; 
 }
 
 a { 
   color: var(--accent); 
   text-decoration: none;
-  transition: all 0.2s ease;
+  transition: color 0.2s ease;
 }
 
 a:hover {
@@ -115,7 +131,7 @@ a:focus-visible {
 }
 
 .sous-titre, .meta { 
-  color: var(--doux); 
+  color: var(--text-muted); 
   margin: 0.4rem 0 0; 
 }
 
@@ -123,21 +139,22 @@ a:focus-visible {
   font-size: 0.85rem; 
 }
 
-/* Cartes Projets */
+/* Cartes Projets style Premium Dark */
 .carte { 
-  border: 1px solid var(--trait); 
-  background: var(--carte-bg); 
-  border-radius: 8px;
-  padding: 1.2rem; 
-  margin: 1.2rem 0; 
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.2);
-  transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+  border: 1px solid var(--border); 
+  background-color: var(--bg-card); 
+  border-radius: 12px;
+  padding: 1.4rem; 
+  margin: 1.25rem 0; 
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .carte:hover {
-  transform: translateY(-2px);
+  background-color: var(--bg-card-hover);
   border-color: var(--accent);
-  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.4);
+  box-shadow: 0 8px 30px var(--accent-glow);
+  transform: translateY(-2px);
 }
 
 .carte h3 { 
@@ -147,56 +164,62 @@ a:focus-visible {
 
 .carte p { 
   margin: 0.4rem 0; 
-  color: #cbd5e1;
+  color: #d1d5db;
 }
 
-/* Badges de compétences */
+/* Badges de compétences sous forme de capsules */
 .comp-liste { 
   font-size: 0.85rem; 
-  margin-top: 0.8rem;
+  margin-top: 1rem;
 }
 
 .comp { 
   display: inline-block; 
-  border: 1px solid var(--trait); 
-  border-radius: 6px;
-  padding: 0.15rem 0.55rem; 
-  margin: 0.2rem 0.4rem 0.2rem 0; 
-  background: var(--fond); 
+  border: 1px solid var(--border-bright); 
+  border-radius: 9999px;
+  padding: 0.2rem 0.7rem; 
+  margin: 0.25rem 0.35rem 0.25rem 0; 
+  background-color: rgba(56, 189, 248, 0.08); 
   color: var(--accent);
   font-weight: 500;
+  font-size: 0.8rem;
 }
 
 /* Tableau des compétences */
 .defile { 
   overflow-x: auto; 
-  border-radius: 8px;
-  border: 1px solid var(--trait);
-  margin-top: 1.2rem;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  margin-top: 1.5rem;
+  background-color: var(--bg-card);
 }
 
 table { 
   border-collapse: collapse; 
   width: 100%; 
-  font-size: 0.9rem; 
+  font-size: 0.875rem; 
 }
 
 th, td { 
-  border: 1px solid var(--trait); 
-  padding: 0.65rem 0.85rem; 
+  border: 1px solid var(--border); 
+  padding: 0.75rem 1rem; 
   text-align: left; 
   vertical-align: middle; 
 }
 
 th { 
-  background: var(--carte-bg); 
-  color: var(--encre);
+  background-color: rgba(255, 255, 255, 0.03); 
+  color: var(--text-main);
   font-weight: 600;
+}
+
+tr:hover td {
+  background-color: rgba(255, 255, 255, 0.02);
 }
 
 td.case { 
   text-align: center; 
-  font-weight: bold; 
+  font-weight: 700; 
   min-width: 2.5rem; 
   color: var(--accent);
 }
@@ -205,31 +228,38 @@ td.case {
 img { 
   max-width: 100%; 
   height: auto; 
-  border: 1px solid var(--trait); 
-  border-radius: 8px;
-  margin: 1rem 0;
+  border: 1px solid var(--border); 
+  border-radius: 10px;
+  margin: 1.2rem 0;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
 }
 
 code { 
-  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
-  font-size: 0.875em; 
-  background: var(--code-bg); 
-  color: #38bdf8;
-  border: 1px solid var(--trait);
-  border-radius: 4px;
-  padding: 0.15rem 0.4rem; 
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  font-size: 0.85em; 
+  background-color: var(--code-bg); 
+  color: var(--accent);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 0.2rem 0.45rem; 
 }
 
 footer { 
-  margin-top: 4rem; 
-  padding: 2rem 1.5rem; 
+  margin-top: 5rem; 
+  padding: 2.5rem 1.5rem; 
   font-size: 0.85rem; 
-  color: var(--doux); 
-  border-top: 1px solid var(--trait); 
+  color: var(--text-muted); 
+  border-top: 1px solid var(--border); 
 }
 
+/* Responsive pour mobiles */
 @media (max-width: 520px) {
   body { font-size: 15px; }
-  h1 { font-size: 1.75rem; }
-  header { flex-direction: column; align-items: flex-start; }
+  h1 { font-size: 1.8rem; }
+  header { 
+    position: relative;
+    flex-direction: column; 
+    align-items: flex-start; 
+    gap: 0.8rem;
+  }
 }

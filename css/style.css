@@ -1,273 +1,105 @@
-/* Style Portfolio — Aesthetic Tech Premium (Nvidia / Meta Style) */
+/* --- BANNIÈRE VIDÉO PLEIN ÉCRAN STYLE META --- */
 
-:root {
-  --bg-main: #08090c;          /* Fond sombre absolu */
-  --bg-surface: #111318;       /* Cartes et conteneurs */
-  --bg-surface-hover: #181b22; /* Effet de survol sur cartes */
-  --border-subtle: #222630;    /* Bordures très fines */
-  --border-bright: #333a48;    /* Bordures au survol */
-  
-  --text-primary: #f3f4f6;     /* Texte principal ultra-lisible */
-  --text-secondary: #9ca3af;   /* Textes secondaires / métadonnées */
-  
-  --accent: #76b900;          /* Vert Nvidia Tech */
-  --accent-cyan: #38bdf8;     /* Bleuté discret */
-  --accent-glow: rgba(118, 185, 0, 0.15);
-  
-  --code-bg: #0d0e12;
+.hero-section {
+  position: relative;
+  width: 100vw;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+  height: 70vh;
+  min-height: 450px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  overflow: hidden;
+  margin-top: 0;
+  margin-bottom: 3rem;
+  background-color: #08090c;
 }
 
-* { 
-  box-sizing: border-box; 
+.hero-video-bg {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100vw;
+  height: 100%;
+  min-width: 100vw;
+  min-height: 70vh;
+  object-fit: cover;
+  transform: translate(-50%, -50%);
+  z-index: 1;
+  pointer-events: none;
+  border: none !important;
+  box-shadow: none !important;
 }
 
-html {
-  scroll-behavior: smooth;
-}
-
-body {
-  margin: 0;
-  background-color: var(--bg-main);
-  color: var(--text-primary);
-  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe UI", Roboto, sans-serif;
-  font-size: 16px;
-  line-height: 1.6;
-  -webkit-font-smoothing: antialiased;
-}
-
-/* En-tête pleine largeur collant (Header Glassmorphism) */
-header { 
-  position: sticky;
+.hero-overlay {
+  position: absolute;
   top: 0;
-  z-index: 100;
+  left: 0;
   width: 100%;
-  background: rgba(8, 9, 12, 0.85);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  padding: 1rem 3rem; 
-  display: flex; 
-  flex-wrap: wrap; 
-  justify-content: flex-start; 
-  align-items: center; 
-  gap: 1rem 3rem; 
-  border-bottom: 1px solid var(--border-subtle);
+  height: 100%;
+  background: rgba(0, 0, 0, 0.55);
+  z-index: 2;
 }
 
-.site { 
-  margin: 0; 
-  font-size: 1.15rem; 
-  font-weight: 700; 
+.hero-text-content {
+  position: relative;
+  z-index: 3;
+  max-width: 850px;
+  padding: 0 20px;
+  color: #ffffff;
+}
+
+.hero-title {
+  font-size: 3.5rem !important;
+  font-weight: 800 !important;
+  color: #ffffff !important;
+  margin: 0 0 1rem 0 !important;
   letter-spacing: -0.03em;
+  text-shadow: 0 4px 20px rgba(0, 0, 0, 0.8);
+  background: none !important;
+  -webkit-text-fill-color: #ffffff !important;
 }
 
-.site a { 
-  color: var(--text-primary); 
-  text-decoration: none; 
-  transition: color 0.2s ease;
+.hero-subtitle {
+  font-size: 1.25rem !important;
+  color: #e5e7eb !important;
+  margin: 0 0 2rem 0 !important;
+  font-weight: 400;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.8);
 }
 
-.site a:hover {
-  color: var(--accent);
+.hero-button {
+  display: inline-block !important;
+  background-color: #0064e0 !important;
+  color: #ffffff !important;
+  font-weight: 600 !important;
+  font-size: 1.05rem !important;
+  padding: 0.9rem 2.2rem !important;
+  border-radius: 50px !important;
+  text-decoration: none !important;
+  box-shadow: 0 4px 20px rgba(0, 100, 224, 0.5) !important;
+  transition: all 0.3s ease !important;
 }
 
-nav ul { 
-  list-style: none; 
-  padding: 0; 
-  margin: 0; 
-  display: flex; 
-  flex-wrap: wrap; 
-  gap: 0.5rem 2rem; 
-  font-weight: 500;
-  font-size: 0.95rem;
-}
-
-nav a {
-  color: var(--text-secondary);
-  text-decoration: none;
-  transition: all 0.2s ease;
-  padding: 0.2rem 0;
-}
-
-nav a:hover {
-  color: var(--text-primary);
-}
-
-/* Structure du contenu */
-main, footer { 
-  max-width: 1200px; 
-  margin: 0 auto; 
-  padding: 0 3rem; 
-}
-
-/* Titres */
-h1, h2, h3 { 
-  color: var(--text-primary);
-  line-height: 1.2; 
-  font-weight: 700;
-  letter-spacing: -0.03em;
-}
-
-h1 { 
-  font-size: 2.5rem; 
-  margin: 3.5rem 0 0.75rem; 
-  background: linear-gradient(180deg, #ffffff 0%, #9ca3af 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-
-h2 { 
-  font-size: 1.5rem; 
-  margin-top: 3.5rem; 
-  border-bottom: 1px solid var(--border-subtle); 
-  padding-bottom: 0.75rem; 
-}
-
-a { 
-  color: var(--accent-cyan); 
-  text-decoration: none;
-  transition: color 0.2s ease;
-}
-
-a:hover {
-  text-decoration: underline;
-}
-
-.sous-titre, .meta { 
-  color: var(--text-secondary); 
-  margin: 0.4rem 0 0; 
-}
-
-.meta { 
-  font-size: 0.85rem; 
-  font-weight: 500;
-}
-
-/* Cartes Projets style Nvidia/Meta */
-.carte { 
-  border: 1px solid var(--border-subtle); 
-  background-color: var(--bg-surface); 
-  border-radius: 10px;
-  padding: 1.75rem; 
-  margin: 1.5rem 0; 
-  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.carte:hover {
-  background-color: var(--bg-surface-hover);
-  border-color: var(--accent);
-  box-shadow: 0 0 25px var(--accent-glow);
+.hero-button:hover {
+  background-color: #0052b8 !important;
   transform: translateY(-2px);
+  box-shadow: 0 6px 25px rgba(0, 100, 224, 0.7) !important;
 }
 
-.carte h3 { 
-  margin: 0 0 0.5rem; 
-  font-size: 1.3rem;
-}
-
-.carte p { 
-  margin: 0.5rem 0; 
-  color: #d1d5db;
-  font-size: 1rem;
-}
-
-/* Badges de compétences */
-.comp-liste { 
-  font-size: 0.85rem; 
-  margin-top: 1.2rem;
-}
-
-.comp { 
-  display: inline-block; 
-  border: 1px solid var(--border-bright); 
-  border-radius: 6px;
-  padding: 0.2rem 0.65rem; 
-  margin: 0.2rem 0.4rem 0.2rem 0; 
-  background-color: rgba(255, 255, 255, 0.03); 
-  color: var(--accent);
-  font-weight: 600;
-  font-size: 0.8rem;
-  letter-spacing: 0.02em;
-}
-
-/* Tableau des compétences */
-.defile { 
-  overflow-x: auto; 
-  border-radius: 10px;
-  border: 1px solid var(--border-subtle);
-  margin-top: 1.5rem;
-  background-color: var(--bg-surface);
-}
-
-table { 
-  border-collapse: collapse; 
-  width: 100%; 
-  font-size: 0.95rem; 
-}
-
-th, td { 
-  border: 1px solid var(--border-subtle); 
-  padding: 0.85rem 1.2rem; 
-  text-align: left; 
-  vertical-align: middle; 
-}
-
-th { 
-  background-color: rgba(255, 255, 255, 0.02); 
-  color: var(--text-primary);
-  font-weight: 600;
-}
-
-tr:hover td {
-  background-color: rgba(255, 255, 255, 0.015);
-}
-
-td.case { 
-  text-align: center; 
-  font-weight: 700; 
-  min-width: 3rem; 
-  color: var(--accent);
-}
-
-/* Images & Blocs de code */
-img { 
-  max-width: 100%; 
-  height: auto; 
-  border: 1px solid var(--border-subtle); 
-  border-radius: 8px;
-  margin: 1.5rem 0;
-  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4);
-}
-
-code { 
-  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
-  font-size: 0.875em; 
-  background-color: var(--code-bg); 
-  color: var(--accent-cyan);
-  border: 1px solid var(--border-subtle);
-  border-radius: 5px;
-  padding: 0.2rem 0.45rem; 
-}
-
-footer { 
-  margin-top: 5rem; 
-  padding-top: 2.5rem;
-  padding-bottom: 2.5rem; 
-  font-size: 0.85rem; 
-  color: var(--text-secondary); 
-  border-top: 1px solid var(--border-subtle); 
-}
-
-/* Adaptations mobiles */
 @media (max-width: 768px) {
-  header { padding: 1rem 1.5rem; }
-  main, footer { padding: 0 1.5rem; }
-}
-
-@media (max-width: 520px) {
-  header { 
-    position: relative;
-    flex-direction: column; 
-    align-items: flex-start; 
-    gap: 0.8rem;
+  .hero-section {
+    height: 55vh;
+    min-height: 380px;
+  }
+  .hero-title {
+    font-size: 2.2rem !important;
+  }
+  .hero-subtitle {
+    font-size: 1rem !important;
   }
 }

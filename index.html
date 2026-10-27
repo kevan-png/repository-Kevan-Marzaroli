@@ -237,6 +237,12 @@ function sync(){pairs.forEach(([a,b])=>{b.position.copy(a.position);b.quaternion
 addEventListener('resize',()=>{renderer.setSize(innerWidth,innerHeight);cam.aspect=innerWidth/innerHeight;cam.updateProjectionMatrix()});
 frame();
 })();
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+        window.location.href = 'home.html';
+    }
+    setTimeout(() => {
+        window.location.href = 'home.html';
+    }, 13400);
 </script>
 </body>
 </html>
